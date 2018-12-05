@@ -1,0 +1,19 @@
+<p><%=  @user.first_name %>
+<%=  @user.last_name %>
+<%= @user.interest %></p>
+
+<ul>
+  <% @user.received_feedbacks do |feedback| %>
+<li><%= feedback.comment %> </li>
+<% end  %>
+
+</ul><br>
+
+<p>leave a comment for <%= @user.first_name %></p>
+
+<%= form_for @user do |f| %>
+<%= f.fields_for :received_feedback do |received_feedback|%>
+<%= received_feedback.text_area :comment %>
+<% end %>
+<%= f.submit %>
+<% end %>

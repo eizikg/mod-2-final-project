@@ -1,0 +1,18 @@
+<p><%=  @user.first_name %>
+<%=  @user.last_name %>
+<%= @user.interest %></p>
+
+<ul>
+  <% @user.feedbacks do |feedback| %>
+<li><%= feedback.comment %> </li>
+<% end  %>
+
+</ul><br>
+
+<p>leave a comment for <%= @user.first_name %></p>
+
+<%= form_tag feedbacks_path do %>
+  <%= text_field_tag :'feedback[comment]' %><br>
+
+  <%= submit_tag "Submit Post" %>
+<% end %> %>
