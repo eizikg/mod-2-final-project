@@ -1,0 +1,4 @@
+<%= render 'forms' %>
+<%= form_tag user_path(@user) method: "destroy" do %>
+<%= submit_tag "Farewell #{@user.name} :(" %>
+<% end %>

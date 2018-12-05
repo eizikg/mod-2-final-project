@@ -1,4 +1,6 @@
 class SessionsController < ApllicationController
+  def new
+  end
   def create
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
@@ -9,4 +11,9 @@ class SessionsController < ApllicationController
       #don't
     end
   end
+
+  def destroy
+  session.delete :username
+end
+
 end

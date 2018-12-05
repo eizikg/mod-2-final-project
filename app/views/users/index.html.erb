@@ -1,0 +1,7 @@
+<h1>Welcome to our site! Here's a list of our users</h1>
+<br>
+<%= @users.each do |user|  %>
+<ul>
+  <li><%= user.full_name %> </li>
+<% end %>
+</ul>
