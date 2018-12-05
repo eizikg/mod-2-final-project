@@ -1,6 +1,7 @@
 class User < ApplicationRecord
+  validates: :first_name, :last_name, :interest, uniqueness: true, presence: true
   has_many :feedbacks
-  has_many :colleagues, :through "comments"
-  has_many :recieved_feedbacks, :class_name => "feedback", :foreign_key => "user_id"
-  has_many :inverse_colleagues, :through => "recieved_feedbacks", :source => :user
+  has_many :colleagues, :through => :feedbacks
+  has_many :received_feedbacks, :class_name => "feedback", :foreign_key => "colleague_id"
+  has_many :inverse_colleagues, :through => "received_feedback", :source => :user
 end
