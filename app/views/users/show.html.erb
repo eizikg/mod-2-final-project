@@ -2,12 +2,13 @@
 <%=  @user.last_name %>
 <%= @user.interest %></p>
 
-<ul>
+<p>
   <% @user.received_feedbacks.each do |feedback| %>
-<li><%= feedback.comment %> </li>
+<p><%= feedback.comment %></p><br>
+<span><%= "#{feedback.giver.first_name} #{feedback.giver.last_name} wrote:" %></span>
 <% end  %>
 
-</ul><br>
+</p><br>
 
 <p>leave a comment for <%= @user.first_name %></p>
 
@@ -15,5 +16,5 @@
 <%= f.fields_for :received_feedback do |received_feedback|%>
 <%= received_feedback.text_area :comment %>
 <% end %>
-<%= f.submit %>
+<%= f.submit "post comment" %>
 <% end %>

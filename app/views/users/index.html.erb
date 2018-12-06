@@ -1,3 +1,4 @@
+<%= button_to "login", '/login', method: "get"  %><br>
 <h1>Welcome to our site! Here's a list of our users</h1>
 <br>
 <% @users.each do |user|  %>
@@ -5,7 +6,5 @@
   <p><%=link_to "#{user.first_name} #{user.last_name}", user %></p>
 
 
-  <%= button_to "see profile", user_path(user), method: :get %>
+  <%= button_to "view", user_path(user), method: :get %>
 <% end %>
-
-<%= button_to "login", '/login', method: "get"  %>
