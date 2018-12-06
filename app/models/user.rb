@@ -9,9 +9,11 @@ class User < ApplicationRecord
 
 
   def full_name
-    byebug
+    if self.first_name && self.last_name
      self.first_name + " " + self.last_name
    end
+ end
 
+has_secure_password
 
 end

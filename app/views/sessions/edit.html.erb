@@ -1,0 +1,13 @@
+
+<p><%= @user.username %>! your account was created! tell us more about yourself.</p>
+<P><%= form_for @user do |f| %>
+<%= f.label "first name here:"  %>
+<%= f.text_field :first_name %></p>
+<br>
+<p><%= f.label "last name here:" %>
+<%= f.text_field :last_name %></p>
+<br>
+<p><%= f.label "what are you up to?" %>
+<%= f.text_area :interest %></p>
+<%= f.submit %>
+<% end %>

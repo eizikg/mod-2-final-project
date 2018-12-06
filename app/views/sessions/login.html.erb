@@ -1,0 +1,8 @@
+<%= form_for @user do |f| %>
+<%= f.label :username %>
+<%= f.text_field :username %>
+<br>
+<%= f.label :password %>
+<%= f.text_field :password %>
+<%= submit_tag "update your info", "/session/#{@user.id}", method: :patch %>
+<%end   %>

@@ -1,12 +1,15 @@
 class FeedbacksController < ApplicationController
 
 def create
-  byebug
   @feedback = Feedback.create(feedback_params)
   redirect_to 'users#show'
 end
 
-
+def update
+  byebug
+  @user.received_feedbacks.create!(comment: user_params[:received_feedback][:comment],user_id: current_user.id)
+  redirect_to @user
+end
 
 
   private

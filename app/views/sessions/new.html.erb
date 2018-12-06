@@ -1,5 +1,10 @@
 <%= form_tag('/login#post') do |f|%>
 <%= label_tag "select a username" %>
-<%= select_tag 'user', options_from_collection_for_select(@users, 'id', 'first_name') %>
+<%= select_tag 'username', options_from_collection_for_select(@users, 'id', 'full_name') %>
+<%= label_tag "password" %>
+<%= text_field_tag 'password'  %>
 <%= submit_tag "sign In" %>
 <%end   %>
+<br>
+<%= label_tag "no account?" %>
+<%= button_to "create account", new_user_path, method: :get %>
