@@ -1,19 +1,15 @@
-class SessionsController < ApllicationController
+class SessionsController < ApplicationController
   def new
+ @users = User.all
   end
   def create
-    @user = User.find_by(username: params[:username])
-    if @user && @user.authenticate(params[:password])
-      #log me in
-      log_in!(@user)
-      redirect_to colors_path
-    else
-      #don't
+    byebug
+    session[:username] = params[:user]
+    redirect_to users_path
     end
-  end
 
-  def destroy
+def destroy
   session.delete :username
-end
+ end
 
 end

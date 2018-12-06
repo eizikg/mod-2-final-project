@@ -23,8 +23,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    #byebug
-    @user.received_feedbacks.create!(comment: user_params[:received_feedback][:comment])
+    byebug
+    @user.received_feedbacks.create!(comment: user_params[:received_feedback][:comment], giver: current_user)
     byebug
     redirect_to @user
   end

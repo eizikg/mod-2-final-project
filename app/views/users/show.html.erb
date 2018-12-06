@@ -3,7 +3,7 @@
 <%= @user.interest %></p>
 
 <ul>
-  <% @user.received_feedbacks do |feedback| %>
+  <% @user.received_feedbacks.each do |feedback| %>
 <li><%= feedback.comment %> </li>
 <% end  %>
 

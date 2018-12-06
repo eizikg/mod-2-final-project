@@ -6,4 +6,12 @@ class User < ApplicationRecord
   # has_many :colleagues, through: :given_feedbacks
   #has_many :feedback_givers, through: :received_feedbacks, foreign_key: "colleague_id", class_name: "User"
   accepts_nested_attributes_for :received_feedbacks
+
+
+  def full_name
+    byebug
+     self.first_name + " " + self.last_name
+   end
+
+
 end
