@@ -1,20 +1,21 @@
-<p><%=  @user.first_name %>
+<h1><%=  @user.first_name %>
 <%=  @user.last_name %>
-<%= @user.interest %></p>
+<%= @user.interest %>
+<%= hidden_field(@user, :id) %>
+<%= hidden_field(@user, :id) %></h1>
 
-<p>
+
 <span><% @user.received_feedbacks.each do |feedback| %></span>
-<p><%= feedback.comment %></p><br>
 <span><%= "#{feedback.giver.first_name} #{feedback.giver.last_name} wrote:" %></span>
+<p><%= feedback.comment %></p><br>
 <% end  %>
 
 </p><br>
 <hr>
 <p>leave a comment for <%= @user.first_name %></p>
 
-<%= form_for @user do |f| %>
-<%= f.fields_for :received_feedback do |received_feedback|%>
-<%= received_feedback.text_area :comment %>
-<% end %>
-<%= f.submit "post comment" %>
+<%= form_tag ('/feedbacks#new') do |f| %>
+<%= text_area_tag :comment %>
+<%= hidden_field_tag(:user_id, @user.id) %>
+<%= submit_tag "post comment"%>
 <% end %>

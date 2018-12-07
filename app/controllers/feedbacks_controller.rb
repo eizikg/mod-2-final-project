@@ -1,21 +1,17 @@
 class FeedbacksController < ApplicationController
 
+
+#creates new feedback on a user page
 def create
-  @feedback = Feedback.create(feedback_params)
-  redirect_to 'users#show'
-end
-
-def update
-  byebug
-  @user.received_feedbacks.create!(comment: user_params[:received_feedback][:comment],user_id: current_user.id)
-  redirect_to @user
+  Feedback.create!(comment: feedback_params[:comment],user_id: current_user.id, colleague_id: feedback_params[:user_id])
+  redirect_to user_path(feedback_params[:user_id])
 end
 
 
-  private
+private
 
   def feedback_params
-    params.require(:feedback).permit(:comment, :user_id, :colleague_id)
+    params.permit(:comment, :user_id, :colleague_id)
   end
 
   def find_feedbacks

@@ -5,7 +5,8 @@ class User < ApplicationRecord
   has_many :feedback_givers, :through => :received_feedbacks, source: :giver
   # has_many :colleagues, through: :given_feedbacks
   #has_many :feedback_givers, through: :received_feedbacks, foreign_key: "colleague_id", class_name: "User"
-  accepts_nested_attributes_for :received_feedbacks
+  validates :username, uniqueness: true
+
 
 
   def full_name
@@ -14,6 +15,6 @@ class User < ApplicationRecord
    end
  end
 
-has_secure_password
+has_secure_password validations: false
 
 end

@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   get '/login', to: "sessions#login"
   post '/logout', to: "sessions#delete"
-  root "users#index"
+  post 'users/reupdate', to: "users#reupdate"
 end

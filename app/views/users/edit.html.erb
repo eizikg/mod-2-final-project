@@ -1,0 +1,15 @@
+<p><%= @user.username %>! your account was created! tell us more about yourself.</p>
+<P><%= form_tag('/users/reupdate', method: :post) do |f|%>
+<%= label_tag "first name here:"  %>
+<%= text_field_tag :first_name %></p>
+<br>
+<p><%= label_tag "last name here:" %>
+<%= text_field_tag :last_name %></p>
+<%=  %>
+<br>
+<p><%= label_tag "what are you up to?" %>
+<%= text_area_tag :interest %></p>
+<%= hidden_field_tag(:username, @user.username) %>
+<%= hidden_field_tag(:password, @user.password) %>
+<%= submit_tag "done"%>
+<% end %>
