@@ -1,0 +1,7 @@
+
+^ feedbacks / form
+
+<%= render 'form' %>
+<%= form_tag feedback_path(@feedback), method: 'delete' do %>
+<%= submit_tag "Delete this comment" %>
+<% end %>
