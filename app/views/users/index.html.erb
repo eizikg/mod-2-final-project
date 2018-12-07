@@ -1,10 +1,29 @@
-<%= button_to "login", '/login', method: "get"  %><br>
+<nav class="ui primary basic button"><%= link_to link_to "login", '/login', method: "get"  %><br></nav>
 <h1>Welcome to our site! Here's a list of our users</h1>
 <br>
+<div class="block">
+  <br>
 <% @users.each do |user|  %>
 
-  <p><%=link_to "#{user.first_name} #{user.last_name}", user %></p>
+  <!-- <p><%=link_to "#{user.first_name} #{user.last_name}", user %></p> -->
 
-
-  <%= button_to "view", user_path(user), method: :get %>
+  <div class="ui card", "center">
+  <div class="image">
+    <img src="">
+  </div>
+  <div class="content">
+    <a class="header"><%=link_to "#{user.first_name} #{user.last_name}", user %> </a>
+    <div class="meta">
+      <span class="date">Joined in 2018</span>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+      <p><%= "#{user.received_feedbacks.count}"%> Feedbacks</p>
+    </a>
+  </div>
+</div>
+</div>
+<br>
+  <p class="ui inverted grey button"><%= link_to "view", user_path(user), method: :get %>
 <% end %>

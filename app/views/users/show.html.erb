@@ -1,17 +1,42 @@
-<h1><%=  @user.first_name %>
-<%=  @user.last_name %>
-<%= @user.interest %>
-<%= hidden_field(@user, :id) %>
-<%= hidden_field(@user, :id) %></h1>
+<div class="backdrop">
+<br>
+<p><%= @user.first_name %>
+<%= @user.last_name %> :
+<%= @user.interest %></p>
+<br>
+<br>
+<br>
 
-
+<div class="comment">
 <span><% @user.received_feedbacks.each do |feedback| %></span>
-<span><%= "#{feedback.giver.first_name} #{feedback.giver.last_name} wrote:" %></span>
-<p><%= feedback.comment %></p><br>
+<span><%= "#{feedback.giver.first_name} #{feedback.giver.last_name} wrote:" %></span> <br> <br>
+<p><%= feedback.comment %></p>
 <% end  %>
 
-</p><br>
+<br></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <hr>
+<br>
+
 <p>leave a comment for <%= @user.first_name %></p>
 
 <%= form_tag ('/feedbacks#new') do |f| %>
@@ -19,3 +44,4 @@
 <%= hidden_field_tag(:user_id, @user.id) %>
 <%= submit_tag "post comment"%>
 <% end %>
+</div>

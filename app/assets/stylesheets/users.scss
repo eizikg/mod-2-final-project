@@ -1,3 +1,27 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h1 {
+  text-align: center;
+  color: grey;
+}
+.block {
+  background-color: blue;
+  opacity: .60;
+}
+
+.center {
+  align-self: center;
+}
+
+.backdrop {
+  background-color: #43ED5B;
+  background-size: 100%;
+  font-size: 16px;
+  text-align: center;
+}
+
+.comment {
+  border: 2px solid white;
+  padding-top: 5px;
+}

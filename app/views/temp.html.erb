@@ -1,23 +1,11 @@
-<p><%=  @user.first_name %>
-<%=  @user.last_name %>
-<%= @user.interest %>
-<%= hidden_field(@user, :id) %>
-<%= hidden_field(@user, :id) %></p>
+<nav class="ui primary basic button"><%=link_to "login", '/login', method: "get"   %><br></nav>
+<%= button_to "login", '/login', method: "get"  %><br>
+<h1>Welcome to our site! Here's a list of our users</h1>
+<br>
+<% @users.each do |user|  %>
 
-<p>
-<span><% @user.received_feedbacks.each do |feedback| %></span>
-<p><%= feedback.comment %></p><br>
-<span><%= "#{feedback.giver.first_name} #{feedback.giver.last_name} wrote:" %></span>
-<% end  %>
+  <p><%=link_to "#{user.first_name} #{user.last_name}", user %></p>
 
-</p><br>
-<hr>
-<p>leave a comment for <%= @user.first_name %></p>
 
-<%= form_for @user do |f| %>
-<%= f.fields_for :received_feedback do |received_feedback|%>
-<%= received_feedback.text_area :comment %>
-<%= f.hidden_field(:id) %>
-<% end %>
-<%= f.submit "post comment", new_feedback_path %>
+  <%= button_to "view", user_path(user), method: :get %>
 <% end %>
