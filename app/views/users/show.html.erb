@@ -1,16 +1,42 @@
-<p><%=  @user.first_name %>
-<%=  @user.last_name %>
+<div class="backdrop">
+<br>
+<p><%= @user.first_name %>
+<%= @user.last_name %> :
 <%= @user.interest %></p>
+<br>
+<br>
+<br>
 
-<p>
+<div class="comment">
 <span><% @user.received_feedbacks.each do |feedback| %></span>
-<p><%= feedback.comment %></p><br>
-<span><%= "#{feedback.giver.first_name} #{feedback.giver.last_name} wrote:" %></span>
+<span><%= "#{feedback.giver.first_name} #{feedback.giver.last_name} wrote:" %></span> <br> <br>
+<p><%= feedback.comment %></p>
 <% end  %>
 
-</p><br>
+<br></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <hr>
-<p>leave a comment for <%= @user.first_name %></p>
+<br>
+<p>Leave a comment for <%= @user.first_name %></p>
 
 <%= form_for @user do |f| %>
 <%= f.fields_for :received_feedback do |received_feedback|%>
@@ -18,3 +44,4 @@
 <% end %>
 <%= f.submit "post comment" %>
 <% end %>
+</div>

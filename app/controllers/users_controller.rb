@@ -16,18 +16,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    byebug
     redirect_to edit_session_path @user
   end
 
 
   def update
-    byebug
     @user.received_feedbacks.create!(comment: user_params[:received_feedback][:comment],user_id: current_user.id)
     redirect_to @user
   end
 
-  
+
   def edit
 
   end
